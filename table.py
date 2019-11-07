@@ -42,3 +42,28 @@ class MixingTable:
                 previousIndeces.add(index)
             
             return index
+    def remove(self, string):
+        if isinstance(string, str) == False:
+            raise TypeError('MixingTable.add: string expected')
+        previousIndeces = set()
+        lastIndex = 0
+        index = self.hash( string, lastIndex)
+        done = False
+        while previousIndeces.__contains__(index) == False:
+            print(index)
+            if self.content[index].storedString == string:
+                self.content[index].count -= 1
+                if self.content[index].count == 0:
+                    self.content[index].storedString = ''
+                done = True
+            lastIndex = index
+            previousIndeces.add(index)
+            index = self.hash( string, lastIndex)
+        return done
+    
+    def writeAll(self):
+        for struct in self.content:
+            for i in range(struct.count):
+                print(struct.storedString)
+
+
