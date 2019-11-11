@@ -4,15 +4,22 @@ import codecs
 import sys
 from table import *
 
+def test1(n: int):
+    m = MixingTable()
+    for i in range(n):
+        word = input()
+        m.add(word)
+    m.writeAll()
+
+def test2(n: int):
+    m = MixingTable()
+    for i in range(n):
+        word = input()
+        m.remove(word)
+
 
 def main():
-    m = MixingTable()
-    f = codecs.open('/home/osboxes/Desktop/AAL/repo/text_probe.txt', 'r', 'utf-8')
-    for line in f:
-        line = re.sub("[-!.,;\n]", "", line)
-        for word in line.split():
-            m.add(word)
-    m.writeAll()
+    test2(3)
 
 if __name__== "__main__":
     main()
