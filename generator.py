@@ -1,3 +1,4 @@
+# Szymon Malolepszy, 293149
 # -*- coding: utf-8
 import re
 import codecs
@@ -70,16 +71,22 @@ def generateWords(n, outputFile=''):
                 index2 += 1
                 randomizer -= transitionArray[index][index2]
             if index2 != EOW and index2 != 0:
-                    generatedWord = generatedWord + chr(index2)
+                    try:
+                        generatedWord = generatedWord + unichr(index2)
+                    except ValueError as identifier:
+                        print("Niefajny kod:" + str(index2))
+                    
             index = index2
         resultsToWrite.append(generatedWord)
     if outputFile == '':
         for word in resultsToWrite:
             print(word)
     else:
-        with open(outputFile, 'w') as f:
+        with codecs.open(outputFile, 'w', 'utf-8') as f:
+            f.write(str(len(resultsToWrite)))
+            f.write('\n')
             for word in resultsToWrite:
-                f.write(word + ' ')
+                f.write(word + '\n')
 
 def showInstruction():
     with open('generator_instruction.txt', 'r') as f:

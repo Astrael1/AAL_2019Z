@@ -1,3 +1,4 @@
+# Szymon Malolepszy, 293149
 # -*- coding: utf-8
 class Structure:
     def __init__(self):

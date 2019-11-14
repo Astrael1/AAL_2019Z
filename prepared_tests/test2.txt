@@ -1,0 +1,10 @@
+4
+pierwszy
+drugi
+trzeci
+czwarty
+4
+pierwszy
+drugi 
+trzeci
+czwarty

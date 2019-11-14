@@ -1,0 +1,6 @@
+python3 program.py -t1 - read number N and add N words from input to table
+python3 program.py -t2 - read number N and remove N words from input to table
+python3 program.py -t3 - read number N and add N words from input to table, then read number M and remove M words from input
+python3 program.py -t4 - read number N and add N words from input to table, then write all words added
+
+-v - write all words in table at the end

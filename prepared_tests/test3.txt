@@ -1,0 +1,8 @@
+4
+pierwszy
+drugi
+trzeci
+czwarty
+2
+pierwszy
+drugi
