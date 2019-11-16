@@ -1,3 +1,4 @@
 python3 generator.py -c -i filename - configure generator using filename.txt text probe
 python3 generator.py -g N - generate N words
 python3 generator.py -g N -o filename.txt - generate N words and save to filename.txt file
+python3 generator.py -g N -n K - generate N words, each of length K

@@ -12,18 +12,14 @@ class MixingTable:
         self.content = []
         for i in range(k):
             self.content.append(Structure())
-    def hash(self, string, previous = 0):
+    def hash(self, string: str, previous = 0):
         index = 0
-        if isinstance(string, str) == False:
-            raise TypeError('MixingTable.hash: string expected')
         for char in string:
             index *= self.hashingBase
             index += ord(char) + previous
             index %= self.k
         return index
-    def add(self, string):
-        if isinstance(string, str) == False:
-            raise TypeError('MixingTable.add: string expected')
+    def add(self, string: str):
         previousIndeces = set()
         lastIndex = 0
         done = False
@@ -43,9 +39,7 @@ class MixingTable:
                 previousIndeces.add(index)
             
             return index
-    def remove(self, string):
-        if isinstance(string, str) == False:
-            raise TypeError('MixingTable.add: string expected')
+    def remove(self, string: str):
         previousIndeces = set()
         lastIndex = 0
         index = self.hash( string, lastIndex)
@@ -65,5 +59,12 @@ class MixingTable:
         for struct in self.content:
             for i in range(struct.count):
                 print(struct.storedString)
+    def getAll(self):
+        result = []
+        for struct in self.content:
+            for i in range(struct.count):
+                result.append(struct.storedString)
+        return result
+
 
 
