@@ -4,3 +4,4 @@ python3 program.py -t3 - read number N and add N words from input to table, then
 python3 program.py -t4 - read number N and add N words from input to table, then write all words added
 
 -v - write all words in table at the end
+-t - write time of essential operations (t1 - adding, t2, t3 - removing, t4 - enumeration)

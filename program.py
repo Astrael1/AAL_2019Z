@@ -1,4 +1,5 @@
 # Szymon Malolepszy, 293149
+# mixing table
 # -*- coding: utf-8
 import re
 import codecs

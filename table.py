@@ -1,4 +1,5 @@
 # Szymon Malolepszy, 293149
+# mixing table
 # -*- coding: utf-8
 class Structure:
     def __init__(self):

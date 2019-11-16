@@ -1,4 +1,5 @@
 # Szymon Malolepszy, 293149
+# mixing table
 # -*- coding: utf-8
 import re
 import codecs
@@ -50,7 +51,7 @@ def configure(filename=''):
         results = [ transitionArray, lettersArray ]
         json.dump(results, f, ensure_ascii=False, indent=4)
 
-def generateWords(n, outputFile=''):
+def generateWords(n, outputFile='', howToWrite = 'w'):
     with open('config.json', 'r') as f:
         data = f.read()
         result = json.loads(data)
@@ -83,13 +84,13 @@ def generateWords(n, outputFile=''):
         for word in resultsToWrite:
             print(word)
     else:
-        with codecs.open(outputFile, 'w', 'utf-8') as f:
+        with codecs.open(outputFile, howToWrite, 'utf-8') as f:
             f.write(str(len(resultsToWrite)))
             f.write('\n')
             for word in resultsToWrite:
                 f.write(word + '\n')
 
-def generateWordsN(n, length, outputFile=''):
+def generateWordsN(n, length, outputFile='', howToWrite = 'w'):
     with open('config.json', 'r') as f:
         data = f.read()
         result = json.loads(data)
@@ -125,7 +126,7 @@ def generateWordsN(n, length, outputFile=''):
         for word in resultsToWrite:
             print(word)
     else:
-        with codecs.open(outputFile, 'w', 'utf-8') as f:
+        with codecs.open(outputFile, howToWrite, 'utf-8') as f:
             f.write(str(len(resultsToWrite)))
             f.write('\n')
             for word in resultsToWrite:
@@ -137,10 +138,15 @@ def showInstruction():
         print(instruction)
 
 def main():
+
+    howToWrite = 'w'
     if '-o' in sys.argv:
         filename = sys.argv[sys.argv.index('-o') + 1]
+        if '-a' in sys.argv:
+            howToWrite = 'a'
     else:
         filename = ''
+    
     
     if len(sys.argv) == 1 or '-h' in sys.argv:
         showInstruction()
@@ -149,9 +155,9 @@ def main():
     elif sys.argv[1] == '-g':
         if '-n' in sys.argv:
             wordCount = sys.argv[sys.argv.index('-n') + 1]
-            generateWordsN(int(sys.argv[2]), wordCount, filename)
+            generateWordsN(int(sys.argv[2]), wordCount, filename, howToWrite)
         else:
-            generateWords(int(sys.argv[2]), filename)
+            generateWords(int(sys.argv[2]), filename, howToWrite)
     else:
         showInstruction()
 
