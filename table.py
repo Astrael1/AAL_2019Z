@@ -45,7 +45,7 @@ class MixingTable:
         lastIndex = 0
         index = self.hash( string, lastIndex)
         done = False
-        while previousIndeces.__contains__(index) == False:
+        while previousIndeces.__contains__(index) == False and done == False:
             if self.content[index].storedString == string:
                 self.content[index].count -= 1
                 if self.content[index].count == 0:
